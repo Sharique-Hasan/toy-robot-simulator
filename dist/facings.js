@@ -1,44 +1,40 @@
 "use strict";
 exports.Facing = Object.freeze({
-    'E': {
+    'EAST': {
         'L': {
-            'move': 'y',
-            'facingNow': 'N'
+            'facingNow': 'NORTH'
         },
         'R': {
-            'move': 'y',
-            'facingNow': 'S'
-        }
+            'facingNow': 'SOUTH'
+        },
+        'move': 'x'
     },
-    'W': {
+    'WEST': {
         'L': {
-            'move': 'y',
-            'facingNow': 'S'
+            'facingNow': 'SOUTH'
         },
         'R': {
-            'move': 'y',
-            'facingNow': 'N'
-        }
+            'facingNow': 'NORTH'
+        },
+        'move': 'x'
     },
-    'N': {
+    'NORTH': {
         'L': {
-            'move': 'x',
-            'facingNow': 'W'
+            'facingNow': 'WEST'
         },
         'R': {
-            'move': 'x',
-            'facingNow': 'E'
-        }
+            'facingNow': 'EAST'
+        },
+        'move': 'y'
     },
-    'S': {
+    'SOUTH': {
         'L': {
-            'move': 'x',
-            'facingNow': 'E'
+            'facingNow': 'EAST'
         },
         'R': {
-            'move': 'x',
-            'facingNow': 'W'
-        }
+            'facingNow': 'WEST'
+        },
+        'move': 'y'
     }
 });
 //# sourceMappingURL=facings.js.map

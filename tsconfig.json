@@ -7,8 +7,10 @@
     "sourceMap": true,
     "noEmitHelpers": true,
     "outDir": "./dist"
-
   },
+  "exclude": [
+    "node_modules"
+  ],
   "compileOnSave": true,
   "buildOnSave": true
 }

@@ -1,0 +1,27 @@
+{
+  "name": "toy-robot-simulator",
+  "version": "1.0.0",
+  "description": "The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units. There are no other obstructions on the table surface. The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed",
+  "main": "dist/game.js",
+  "dependencies": {
+    "rxjs": "^5.0.0-rc.1"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.45",
+    "jest": "^16.0.2",
+    "typescript": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sharique-Hasan/toy-robot-simulator.git"
+  },
+  "author": "Sharique Hasan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sharique-Hasan/toy-robot-simulator/issues"
+  },
+  "homepage": "https://github.com/Sharique-Hasan/toy-robot-simulator#readme"
+}
