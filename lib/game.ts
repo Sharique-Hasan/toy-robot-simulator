@@ -6,6 +6,8 @@ import { CommandInterface, ActionArgumentInterface } from './command.interface';
 export class Game {
     private commands: Array<string>;
     private robot: Robot;
+    static validCommands: Array<string> = ['MOVE', 'PLACE', 'REPORT', 'LEFT', 'RIGHT'];
+    static validDirections: Array<string> = ['EAST', 'WEST', 'NORTH', 'SOUTH'];
 
     constructor(commands: Array<string>) {
         this.commands = commands;
@@ -46,6 +48,9 @@ export class Game {
         let extractedCommands: CommandInterface = Game.commandProcessor(command);
         let action = extractedCommands.action;
         let actionArguments = extractedCommands.arguments;
+        if(!extractedCommands.valid) {
+            action = null;
+        }
 
         switch (action) {
             case 'PLACE':
@@ -79,11 +84,17 @@ export class Game {
      * Outputs the [actionArguments] from the command.
      */
     static commandProcessor(command): CommandInterface {
+
         let action = command.split(' ')[0];
         return {
             action: action,
-            arguments: Game.extractActionArguments(command)
+            arguments: Game.extractActionArguments(command),
+            valid: Game.isValidCommand(action, Game.extractActionArguments(command))
         };
+    }
+
+    static isValidCommand(action: string, args: ActionArgumentInterface): boolean {
+        return Game.validCommands.indexOf(action) !== -1 && args.valid;
     }
 
     static extractActionArguments(command: string): ActionArgumentInterface {
@@ -92,10 +103,15 @@ export class Game {
          */
         let commandBreak = command.split(' ');
         let arg = commandBreak.length > 1 ? commandBreak[1].split(',') : '';
+        let valid: boolean = true;
+        if(commandBreak.length > 1) {
+            valid = !isNaN(+arg[0]) && !isNaN(+arg[1]) && Game.validDirections.indexOf(arg[2]) !== -1;
+        }
         return {
             x: parseInt(arg[0]),
             y: parseInt(arg[1]),
-            face: arg[2]
+            face: arg[2],
+            valid: valid
         };
     }
 
