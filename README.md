@@ -78,6 +78,10 @@ It is not required to provide any graphical output showing the movement of the t
 
 ## Usage
 
+```
+npm install
+```
+
 ##### Input via file
 ```
 ./bin/start.js --file ../data.txt
